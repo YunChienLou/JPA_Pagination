@@ -27,7 +27,7 @@ if exist ../pagination-example  (
         del /S /Q "../JPA_Pagination/src/main/resources/static"
         xcopy /e /v "dist" "../JPA_Pagination/src/main/resources/static"
         cd ../JPA_Pagination
-        mvn package
+        mvn package -Dmaven.test.skip
     ) else (
         echo Error !!! building is not successful ... 
         echo Ending deploy process... Bye~
