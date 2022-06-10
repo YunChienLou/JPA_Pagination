@@ -27,7 +27,7 @@ if exist ../pagination-example  (
     if exist dist (
 
         del /S /Q "../JPA_Pagination/src/main/resources/static"
-        xcopy /e /v "dist" "../JPA_Pagination/src/main/resources/static"
+        echo D | xcopy /e /v "dist" "../JPA_Pagination/src/main/resources/static"
 
         cd ../JPA_Pagination
         mvn package -Dmaven.test.skip
