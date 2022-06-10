@@ -1,3 +1,4 @@
+
 echo off
 :::
 :::
@@ -14,7 +15,7 @@ echo off
 :::                                              
 :::
 for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
-@REM 檢查專案外面有沒有PAGINATION
+
 echo Hello !! Starting deploy process at %time%
 echo running at %cd%
 echo.
@@ -24,15 +25,15 @@ if exist ../pagination-example  (
     npm install
     npm run build
     if exist dist (
-        @REM 刪除可能重複的 STATIC 資料夾 並 加入前端打包的專案
+
         del /S /Q "../JPA_Pagination/src/main/resources/static"
         xcopy /e /v "dist" "../JPA_Pagination/src/main/resources/static"
-        @REM 進入JPA 專案 build .JAR 檔
+
         cd ../JPA_Pagination
         mvn package -Dmaven.test.skip
-        @REM 設定DATABASE 登入mySQl
+
         mysql -u root -p < C:\project\javaPagination_workplace\JPA_Pagination\database_setup.sql
-        @REM 輸入密碼
+
         echo Complete Database Set Up!!!
     ) else (
         echo Error !!! building is not successful ... 
