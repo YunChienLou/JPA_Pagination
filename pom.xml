@@ -5,7 +5,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.6.8</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>JPA_Pagination</artifactId>
@@ -35,9 +35,9 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-		    <groupId>org.apache.maven.plugins</groupId>
-		    <artifactId>maven-war-plugin</artifactId>
-		    <version>3.0.0</version>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-war-plugin</artifactId>
+			<version>3.0.0</version>
 		</dependency>
 	</dependencies>
 
@@ -47,6 +47,34 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+		    <plugin>
+		        <groupId>com.microsoft.azure</groupId>
+		        <artifactId>azure-spring-cloud-maven-plugin</artifactId>
+		        <version>1.3.0</version>
+		        <configuration>
+		            <subscriptionId>a0446d61-c6ef-4eed-bc27-fd8a24bc21c6</subscriptionId>
+		            <clusterName>jpa-azure-host</clusterName>
+		            <appName>jpa-azure-host</appName>
+		            <isPublic>true</isPublic>
+		            <deployment>
+		                <cpu>1</cpu>
+		                <memoryInGB>1</memoryInGB>
+		                <instanceCount>1</instanceCount>
+		                <runtimeVersion>Java 8</runtimeVersion>
+		                <resources>
+		                    <resource>
+		                        <filtering/>
+		                        <mergeId/>
+		                        <targetPath/>
+		                        <directory>${project.basedir}/target</directory>
+		                        <includes>
+		                            <include>*.jar</include>
+		                        </includes>
+		                    </resource>
+		                </resources>
+		            </deployment>
+		        </configuration>
+		    </plugin>
 		</plugins>
 	</build>
 

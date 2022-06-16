@@ -32,9 +32,6 @@ if exist ../pagination-example  (
         cd ../JPA_Pagination
         mvn package -Dmaven.test.skip
 
-        mysql -u root -p < C:\project\javaPagination_workplace\JPA_Pagination\database_setup.sql
-
-        echo Complete Database Set Up!!!
     ) else (
         echo Error !!! building is not successful ... 
         echo Ending deploy process... Bye~
